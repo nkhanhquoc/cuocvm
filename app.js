@@ -187,7 +187,8 @@ function tinhcuoc($scope){
       } else {
         $scope.totalBosung = $scope.price * 0.004;
       }
-    }else {
+    }
+    else {
       if($scope.bosung == "BS1"){
         $scope.totalBosung = $scope.price * 0.004;
       } else {

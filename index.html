@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="cuocvmWeb">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <script src="angular.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js" charset="utf-8"></script>
 </head>
 
-<body ng-app="cuocvmWeb">
+<body ng-controller="tinhcuoc" >
 <h1>Welcome tính cước VM</h1>
-<div ng-controller="tinhcuoc">
-  <div class="form-group col-lg-4">
+<div >
+  <div class="form-group col-md-4">
     <label for="comment">Loại hàng: </label>
-    <select class="form-control" ng-model="loaihang" ng-change="showOptions()">
+    <select class="form-control" ng-model="loaihang" ng-change="showOptions()" placeholder="Loại hàng">
       <option class="form-control" ng-repeat="n in listHangHoa" value="{{n.value}}">{{n.text}}</option>
     </select>
   </div>
-  <div id="showOptions" ng-show="options == true"  class="form-group">
-    <div class="form-group col-lg-4">
+
+  <div id="showOptions" ng-show="options == true"  class="form-row form-group">
+    <div class="form-group col-md-4">
       Nơi nhận hàng:
       <select class="form-control" ng-model="location" ng-change="cuocCoban()">
         <option class="form-control" ng-repeat="b in listLocation" value="{{b.value}}">{{b.text}} </option>
       </select>
     </div>
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-md-4">
       Giao hàng:
       <select class="form-control" ng-model="delivery">
         <option class="form-control" ng-repeat="d in listDelivery" value="{{d.value}}">{{d.text}} </option>
       </select>
     </div>
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-md-4">
       <label for="price">Giá trị hàng hóa(VND):</label>
       <input type="number" class="form-control" ng-model="price" />
     </div>
 
-    <div class="form-group col-lg-4">
+    <div class="form-group col-md-4">
       <label for="weight">Khối lượng(Kg):</label>
       <input type="number" class="form-control" ng-model="weight" />
     </div>
+    <div class="form-group col-md-4">
+      <label for="bosung">Cước bổ sung:</label>
+      <select class="form-control" ng-model="bosung">
+          <option class="form-control" ng-repeat="a in listBosung" value="{{a.value}}">{{a.text}} </option>
+      </select>
+    </div>
   </div>
-
-  <div class="form-group col-lg-4">
-    <label for="bosung">Cước bổ sung:</label>
-    <select class="form-control" ng-model="bosung">
-        <option class="form-control" ng-repeat="a in listBosung" value="{{a.value}}">{{a.text}} </option>
-    </select>
-  </div>
-<div class="form-group col-lg-4">
   <input type="button" class="btn btn-primary" value="Tính cước" ng-click="countTotal()"/>
-</div>
 
-  <div id="total" class="form-group col-lg-4">
+
+  <div id="total" class="form-group col-md-4">
     <h2>Cước cơ bản: {{totalCoban|number}}</h2>
     <h2>Cước bổ sung: {{totalBosung|number}}</h2>
     <h1>Tổng: {{total | number}}</h1>
@@ -59,6 +60,7 @@
 
 
 </div>
+
 
 </body>
 
