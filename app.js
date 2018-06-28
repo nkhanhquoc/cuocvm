@@ -8,13 +8,14 @@ function tinhcuoc($scope){
   $scope.options = false;
   var resetFee = function(){
     $scope.total = 0;
-    $scope.totalCoban = 0;
+    $scope.totalCoban = -1000000000;
     $scope.totalBosung = 0;
     $scope.totalPhuphi = 0;
     $scope.totalDelivery = 0;
     $scope.totalCod = 0;
   }
   $scope.countTotal = function(){
+    resetFee();
     cuocCoban();
     tinhBosung();
     $scope.total = $scope.totalCoban + $scope.totalBosung + $scope.totalPhuphi + $scope.totalDelivery + $scope.totalCod;
